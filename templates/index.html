@@ -1,10 +1,7 @@
 {% extends "base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block
-title %}TEC21{% endblock %} {% block page_content %}
+title %}Michis{% endblock %} {% block page_content %}
 <div class="page-header">
-  <h1>Welcome to Tec21, the model where everyone suffers</h1>
-  <img
-    src="https://i.pinimg.com/736x/31/06/11/310611067453d39d767dd2aad691358b.jpg"
-    alt="Kitty crying"
-  />
+  <h1¡>Adopta un michi!</h1>
+  {{ wtf.quick_form(form) }}
 </div>
 {% endblock %}
