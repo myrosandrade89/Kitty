@@ -48,18 +48,24 @@ def internal_server_error(e):
     return render_template('500.html'), 500
 
 
-@app.route('/Register/<typeUser>', methods=['GET', 'POST'])
-def register(typeUser):
-    form = NameForm()
-    if form.validate_on_submit():
-        session['name'] = form.name.data
-        return redirect(url_for('status'))
-    return render_template('register.html', form=form, name=session.get('name'), typeUser=typeUser)
-
-
-@app.route('/Status', methods=['GET'])
+@app.route('/michiGordo')
 def status():
-    return render_template('status.html', name=session.get('name'))
+    URL = "https://en.wikipedia.org/wiki/Meow_(cat)"
+    page = requests.get(URL)
+
+    soup = BeautifulSoup(page.content, "html.parser")
+    information = soup.find("table", class_="infobox biography biota")
+
+    name=information.find("caption", class_="infobox-title").text.strip()
+    image=information.find("img")
+    img=image["src"]
+
+
+    dataSets=information.find_all("td")
+    species=dataSets[1].text.strip()
+    sex=dataSets[2].text.strip()
+    description=dataSets[6].text.strip()
+    return render_template('datoCurioso.html', name=name, image=img, description=description, sex=sex, species=species)
 
 
 @app.route('/', methods=['GET', 'POST'])

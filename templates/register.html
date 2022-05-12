@@ -1,9 +1,0 @@
-{% extends "base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block
-title %}TEC21{% endblock %} {% block page_content %}
-<div class="page-header">
-  <h1>
-    Register type: {% if typeUser %}{{typeUser}}{% else %}Student{% endif %}
-  </h1>
-  <h1>Please introduce your name to register to the Tec21 model</h1>
-</div>
-{{ wtf.quick_form(form) }} {% endblock %}

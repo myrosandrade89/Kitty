@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block
+title %}Michis{% endblock %} {% block page_content %}
+<div class="page-header">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4" style="margin-bottom: 20px">Did you know...?</h1>
+      <div style="display: flex">
+        <img src="{{image}}" style="margin-right: 20px" alt="" />
+        <div>
+          <h2>{{name}}</h2>
+          <p class="lead">
+            is a {{species}} {{sex}} cat. <br />
+            It is considered to be world's {{description}}, weighing 39.6
+            pounds.
+          </p>
+          <div style="display: flex; align-items: center">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/002/599/334/large_2x/cemetery-tomb-with-rip-word-flat-style-icon-free-vector.jpg"
+              alt="rip-cat"
+              style="width: 150px"
+            />
+            <p>Rest In Peace {{name}} ◕︵◕</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
